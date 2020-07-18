@@ -3,13 +3,6 @@ require 'pry'
 
 class Scraper
 
-  # def self.scrape_index_page(index_url)
-  #   html = open("https://learning.flatironschool.com/courses/154/pages/oo-student-scraper")
-  #   Nokogiri::HTML(html)
-  #   doc = Nokogiri::HTML(html)
-    
-  # end   
-  
   def self.scrape_index_page(index_url)
     html = open(index_url)
     doc = Nokogiri::HTML(html)
@@ -38,7 +31,6 @@ class Scraper
         elsif element.attr('href').end_with?("com/")
           return_hash[:blog] = element.attr('href')
         end
-      
       return_hash[:profile_quote] = doc.css(".vitals-container .vitals-text-container .profile-quote").text
       return_hash[:bio] = doc.css(".bio-block.details-block .bio-content.content-holder .description-holder p").text
     end
