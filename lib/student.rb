@@ -3,6 +3,10 @@ class Student
   attr_accessor :name, :location, :twitter, :linkedin, :github, :blog, :profile_quote, :bio, :profile_url 
 
   @@all = []
+  
+  def self.all 
+    @@all 
+  end
 
   def initialize(student_hash)
     self.send("name=", student_hash[:name])
