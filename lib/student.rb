@@ -4,7 +4,7 @@ class Student
 
   @@all = []
 
-  def new(student_hash)
+  def initialize(student_hash)
      attributes.each do |attribute_name, attribute_value|
           if self.respond_to?("#{attribute_name}=") #is it there?
               self.send("#{attribute_name}=", attribute_value)
